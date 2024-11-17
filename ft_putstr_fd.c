@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:06:38 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 17:57:17 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/17 02:30:12 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while (s[i++])
-		write(fd, &s[i], 1);
+	if (!s)
+		return ;
+	while (s[i])
+		write(fd, &s[i++], 1);
 }

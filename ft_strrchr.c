@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:22:59 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 15:07:56 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/16 22:07:06 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char *p;
+	const char	*p;
 
 	p = NULL;
 	while (*s != '\0')
@@ -23,6 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 			p = s;
 		s++;
 	}
-
+	if (c == '\0')
+		return ((char *)s);
 	return ((char *)p);
 }

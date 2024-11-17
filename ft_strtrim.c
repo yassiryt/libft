@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:58:06 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 15:08:08 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:29:45 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	in_set(char const c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	int slen;
+	int	i;
+	int	slen;
 
 	if (!s1)
 		return (NULL);

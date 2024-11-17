@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 21:41:20 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 15:07:21 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:25:37 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ static void	check_negga(int *n, unsigned int *nb, size_t *nbl)
 
 char	*ft_itoa(int n)
 {
-	char *num;
-	size_t i;
-	size_t nbl;
-	unsigned int nb;
+	char			*num;
+	size_t			i;
+	size_t			nbl;
+	unsigned int	nb;
 
 	i = 0;
 	nbl = 0;

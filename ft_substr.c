@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:21:11 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 15:08:06 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:29:59 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *sub;
+	char	*sub;
 	size_t	i;
 
 	if (!s)

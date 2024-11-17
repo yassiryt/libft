@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 21:56:17 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/14 23:16:55 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:28:26 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if ((char)!c)
+	if ((char) !c)
 		return ((char *)&s[i]);
 	return (0);
 }

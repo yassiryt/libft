@@ -6,92 +6,85 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:17:58 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/15 16:17:18 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/17 16:43:55 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	free_memory(char **array)
+static void	free_memory(char **arr)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
 
-static int	count_words(const char *str, char c)
+static int	count_word(char const *str, char c)
 {
+	int	count;
 	int	i;
-	int	count_word;
 
+	count = 0;
 	i = 0;
-	count_word = 0;
 	while (str[i])
 	{
 		if (str[i] == c)
+		{
 			i++;
-		else
-		{
-			count_word++;
-			while (str[i] && str[i] != c)
-				i++;
+			continue ;
 		}
+		count++;
+		while (str[i] != c && str[i])
+			i++;
 	}
-	return (count_word);
+	return (count);
 }
 
-static char	*extract_word(const char *str, int *index, char c)
+static char	**words_to_array(char **arr, char const *str, char c)
 {
-	char	*word;
-	int		start;
-	int		len;
+	int	index;
+	int	i;
+	int	start;
 
-	while (str[*index] == c)
-		(*index)++;
-	start = *index;
-	len = 0;
-	while (str[*index] && str[*index] != c)
-	{
-		(*index)++;
-		len++;
-	}
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	word[len] = '\0';
-	while (len--)
-		word[len] = str[start + len];
-	return (word);
-}
-
-char	**ft_split(char const *str, char c)
-{
-	char	**result;
-	int		count_word;
-	int		i;
-	int		index;
-
-	if (!str)
-		return (NULL);
-	count_word = count_words(str, c);
-	result = (char **)malloc(sizeof(char *) * (count_word + 1));
-	if (!result)
-		return (NULL);
-	i = 0;
 	index = 0;
-	while (i < count_word)
+	i = 0;
+	while (str[i])
 	{
-		result[i] = extract_word(str, &index, c);
-		if (!result[i])
+		if (str[i] == c)
 		{
-			free_memory(result);
-			return (NULL);
+			i++;
+			continue ;
 		}
-		i++;
+		start = i;
+		while (str[i] != c && str[i])
+			i++;
+		arr[index] = malloc(i - start + 1);
+		if (!arr[index])
+			return (NULL);
+		ft_strlcpy(arr[index++], str + start, i - start + 1);
 	}
-	result[i] = NULL;
-	return (result);
+	arr[index] = NULL;
+	return (arr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+	int		words_count;
+
+	if (!s)
+		return (NULL);
+	words_count = count_word(s, c);
+	array = malloc((words_count + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+	if (!words_to_array(array, s, c))
+	{
+		free_memory(array);
+		return (NULL);
+	}
+	return (array);
 }
