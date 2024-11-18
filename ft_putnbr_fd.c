@@ -6,7 +6,7 @@
 /*   By: yatanagh <yatanagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:13:52 by yatanagh          #+#    #+#             */
-/*   Updated: 2024/11/17 02:52:33 by yatanagh         ###   ########.fr       */
+/*   Updated: 2024/11/17 18:50:52 by yatanagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
+	{
 		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
